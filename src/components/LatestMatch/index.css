@@ -1,0 +1,63 @@
+/* Write your CSS here */
+
+.latest-match-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #0f172a;
+  width: 100%;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.team-detail {
+  margin-right: 10px;
+}
+
+.compeating-team {
+  font-family: 'Bree Serif';
+  font-size: 25px;
+  font-weight: 400px;
+  color: #ffffff;
+}
+
+.venue {
+  font-family: 'Bree Serif';
+  font-size: 15px;
+  font-weight: 400px;
+  color: #ffffff;
+}
+
+.result {
+  font-family: 'Bree Serif';
+  font-size: 15px;
+  font-weight: 400px;
+  color: #ffffff;
+}
+
+.competing-team-logo {
+  height: 300px;
+  width: 300px;
+}
+
+.match-details-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.match-details-heading {
+  font-family: 'Bree Serif';
+  font-size: 20px;
+  font-weight: 400px;
+  color: #ffffff;
+}
+
+.match-details-description {
+  font-family: 'Bree Serif';
+  font-size: 15px;
+  font-weight: 400px;
+  color: #ffffff;
+}

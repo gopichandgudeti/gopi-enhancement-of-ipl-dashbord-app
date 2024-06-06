@@ -1,0 +1,64 @@
+/* Write your CSS here */
+.team-matches-bg-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.team-banner-url {
+  width: 100%;
+}
+
+.latest-matches-text {
+  font-family: 'Bree Serif';
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.rcb {
+  background: linear-gradient(to top, #1e293b, #a4261d);
+}
+
+.kkr {
+  background: linear-gradient(to top, #1e293b, #5755a7);
+}
+
+.kxp {
+  background: linear-gradient(to top, #1e293b, #d91c1f);
+}
+
+.csk {
+  background: linear-gradient(to top, #1e293b, #f7db00);
+}
+
+.rr {
+  background: linear-gradient(to top, #1e293b, #5755a7);
+}
+
+.mi {
+  background: linear-gradient(to top, #1e293b, #13418b);
+}
+
+.dc {
+  background: linear-gradient(to top, #1e293b, #4f5db0);
+}
+
+.sr {
+  background: linear-gradient(to top, #1e293b, #1e293b);
+}
+
+.responsive-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.match-cards-container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 0px;
+}
