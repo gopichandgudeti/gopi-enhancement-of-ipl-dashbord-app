@@ -25,7 +25,11 @@ const LatestMatch = props => {
         <p className="venue">{venue}</p>
         <p className="result">{result}</p>
       </div>
-      <img src={competingTeamLogo} className="competing-team-logo" alt={`latest match ${competingTeam}`}/>
+      <img
+        src={competingTeamLogo}
+        className="competing-team-logo"
+        alt={`latest match ${competingTeam}`}
+      />
       <div className="match-details-text-container">
         <h1 className="match-details-heading">First Innings</h1>
         <p className="match-details-description">{firstInnings}</p>

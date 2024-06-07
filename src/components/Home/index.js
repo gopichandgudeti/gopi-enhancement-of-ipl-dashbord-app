@@ -42,9 +42,8 @@ class Home extends Component {
       <div className="home-bg-container">
         <div className="teams-list-container">
           {isLoading ? (
-            <div testid="loader" className="loader-container">
-              {' '}
-              <Loader type="Oval" color="#ffffff" height={50} width={50} />{' '}
+            <div className="loader-container">
+              <Loader type="Oval" color="#ffffff" height={50} width={50} />
             </div>
           ) : (
             <>
