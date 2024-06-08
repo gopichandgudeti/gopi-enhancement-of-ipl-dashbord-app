@@ -62,3 +62,21 @@
   justify-content: space-around;
   padding-left: 0px;
 }
+
+.link-container {
+  align-self: flex-end;
+}
+
+.back-btn {
+  background-color: transparent;
+  color: #ffffff;
+  font-family: 'Roboto';
+  height: 30px;
+  width: 100px;
+  padding: 5px;
+  font-size: 10px;
+  font-weight: 500;
+  outline: none;
+  border-radius: 5px;
+  
+}

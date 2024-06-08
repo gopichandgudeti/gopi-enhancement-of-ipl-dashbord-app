@@ -1,10 +1,13 @@
 // Write your code here
 
 import {Component} from 'react'
+
 import Loader from 'react-loader-spinner'
+import {Link} from 'react-router-dom'
 
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
+import PieChartData from '../PieChartData'
 
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 
@@ -107,8 +110,14 @@ class TeamMatches extends Component {
           className="team-banner-url"
         />
         <p className="latest-matches-text">Latest Matches</p>
+        {this.getStatisticsOfMatch()}
         <LatestMatch latestMatchData={latestMatchDetails} />
-        {this.getMatchCard()}
+        <PieChartData matchesData={teamMatchesData} />
+        <Link to="/" className="link-container">
+          <button type="button" className="back-btn">
+            Back
+          </button>
+        </Link>
       </div>
     )
   }
@@ -120,7 +129,7 @@ class TeamMatches extends Component {
     return (
       <div className={className}>
         {isLoading ? (
-          <div >
+          <div>
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         ) : (
