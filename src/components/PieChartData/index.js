@@ -1,72 +1,32 @@
-import React, {PureComponent} from 'react'
-import {PieChart, Pie, ResponsiveContainer} from 'recharts'
 
-class PieChartData extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/pie-chart-of-two-levels-gor24'
+import {PieChart as PieChartComponent, Pie, Cell, Legend, Tooltip} from 'recharts'
 
-  render() {
-    const {matchesData} = this.props
+import './index.css'
 
-    const matchesWon = matchesData.recentMatches.filter(
-      each => each.matchStatus === 'Won',
-    )
-    const noOfMatchesWon = matchesWon.length
+const COLORS = ['#37DC2A', '#E45B16', '#E4DB16']
 
-    const matchesLost = matchesData.recentMatches.filter(
-      each => each.matchStatus === 'Lost',
-    )
-    const noOfMatchesLost = matchesLost.length
+const PieChart = props => {
+  const {data} = props
 
-    const matchesDraw = matchesData.recentMatches.filter(
-      each => each.matchStatus === 'Draw',
-    )
-    const noOfMatchesDraw = matchesDraw.length
-
-    /* if (matchesData.latestMatchDetails.matchStatus === 'Won') {
-      noOfMatchesWon + 1
-    } else if (matchesData.latestMatchDetails.matchStatus === 'Lost') {
-      noOfMatchesLost + 1
-    } else if (matchesData.latestMatchDetails.matchStatus === 'Draw') {
-      noOfMatchesDraw + 1
-    } */
-
-    // const totalMatchesPlayed = noOfMatchesWon + noOfMatchesLost
-
-    return (
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart width={730} height={250}>
-          <Pie
-            dataKey={noOfMatchesWon}
-            nameKey="Won"
-            cx="50%"
-            cy="50%"
-            outerRadius={50}
-            fill="#8884d8"
-          />
-          <Pie
-            dataKey={noOfMatchesLost}
-            nameKey="Lost"
-            cx="50%"
-            cy="50%"
-            innerRadius={60}
-            outerRadius={80}
-            fill="#82ca9d"
-            label
-          />
-          <Pie
-            dataKey={noOfMatchesDraw}
-            nameKey="Lost"
-            cx="50%"
-            cy="50%"
-            innerRadius={70}
-            outerRadius={90}
-            fill="#83ca9d"
-            label
-          />
-        </PieChart>
-      </ResponsiveContainer>
-    )
-  }
+  return (
+    <div className="pie-chart-bg-container mt-2 d-flex justify-content-center">
+      <PieChartComponent width={400} height={350}>
+        <Pie
+          data={data}
+          innerRadius={0}
+          outerRadius={100}
+          dataKey="value"
+          label>
+          {data.map((entry, index) => (
+            <Cell key={cell-${index}} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Tooltip/>
+        <Legend verticalAlign="bottom" height={36}/>
+      </PieChartComponent>
+    </div>
+  )
 }
 
-export default PieChartData
+export default PieChart
+
