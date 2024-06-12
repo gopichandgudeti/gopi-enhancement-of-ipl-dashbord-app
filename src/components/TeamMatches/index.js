@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom'
 
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
+
 import PieChartData from '../PieChartData'
 
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
@@ -100,7 +101,27 @@ class TeamMatches extends Component {
 
   getTeamMatches = () => {
     const {teamMatchesData} = this.state
-    const {teamBannerUrl, latestMatchDetails} = teamMatchesData
+    const {teamBannerUrl, latestMatchDetails, recentMatches} = teamMatchesData
+
+    const calculateStatistics = () => {
+      let wins = 0
+      let losses = 0
+      let draws = 0
+
+      recentMatches.forEach(match => {
+        if (match.matchStatus === 'Won') {
+          wins += 1
+        } else if (match.matchStatus === 'Lost') {
+          losses += 1
+        } else {
+          draws += 1 // Assuming "NA tie" or other statuses are considered as draws
+        }
+      })
+
+      return {wins, losses, draws}
+    }
+
+    const {wins, losses, draws} = calculateStatistics()
 
     return (
       <div className="responsive-container">
@@ -110,9 +131,9 @@ class TeamMatches extends Component {
           className="team-banner-url"
         />
         <p className="latest-matches-text">Latest Matches</p>
-        {this.getStatisticsOfMatch()}
         <LatestMatch latestMatchData={latestMatchDetails} />
-        <PieChartData matchesData={teamMatchesData} />
+        <PieChartData wins={wins} losses={losses} draws={draws} />
+        {this.getMatchCard()}
         <Link to="/" className="link-container">
           <button type="button" className="back-btn">
             Back
