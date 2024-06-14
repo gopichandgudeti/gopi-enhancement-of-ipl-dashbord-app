@@ -149,13 +149,12 @@ class TeamMatches extends Component {
 
     return (
       <div className={className}>
-        {isLoading ? (
-          <div>
+        {isLoading && (
+          <div data-testid="loader">
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
-        ) : (
-          this.getTeamMatches()
         )}
+        {!isLoading && this.getTeamMatches()}
       </div>
     )
   }

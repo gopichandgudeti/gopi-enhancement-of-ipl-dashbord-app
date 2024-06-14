@@ -1,5 +1,12 @@
 import React, {PureComponent} from 'react'
-import {PieChart, Pie, Sector, Cell, ResponsiveContainer} from 'recharts'
+import {
+  PieChart,
+  Pie,
+  Legend,
+  Tooltip,
+  Cell,
+  ResponsiveContainer,
+} from 'recharts'
 
 class PieChartData extends PureComponent {
   static demoUrl = 'https://codesandbox.io/s/pie-chart-of-two-levels-gor24'
@@ -14,19 +21,22 @@ class PieChartData extends PureComponent {
     ]
 
     return (
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart width={400} height={400}>
+      <ResponsiveContainer width="100%" height={300}>
+        <PieChart>
           <Pie
-            dataKey="value"
-            startAngle={180}
-            endAngle={0}
             data={data}
             cx="50%"
             cy="50%"
             outerRadius={80}
             fill="#8884d8"
             label
-          />
+          >
+            <Cell name="Won" fill="#2d87bb" />
+            <Cell name="Lost" fill="#a3df9f" />
+            <Cell name="Draw" fill="#64C2A6" />
+          </Pie>
+          <Tooltip />
+          <Legend verticalAlign="bottom" height={36} />
         </PieChart>
       </ResponsiveContainer>
     )

@@ -41,11 +41,12 @@ class Home extends Component {
     return (
       <div className="home-bg-container">
         <div className="teams-list-container">
-          {isLoading ? (
-            <div className="loader-container">
+          {isLoading && (
+            <div className="loader-container" data-testid="loader">
               <Loader type="Oval" color="#ffffff" height={50} width={50} />
             </div>
-          ) : (
+          )}
+          {!isLoading && (
             <>
               <div className="home-heading-container">
                 <img
